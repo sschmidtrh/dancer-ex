@@ -77,6 +77,7 @@ post '/' => sub {
 };
 
 get '/health' => sub {
+  my $podname=uc $ENV{'HOSTNAME'};
   my $dbh  = get_connection();
   my $ping = $dbh->ping();
 
@@ -87,9 +88,9 @@ get '/health' => sub {
   }
   elsif (not $ping) {
     status 'error';
-    return "ERROR: Database did not respond to ping.";
+    return "ERROR: Database did not respond to ping from pod" . $podname;
   }
-  return "SUCCESS: Database connection appears healthy.";
+  return "SUCCESS: Database connection appears healthy" . $podname;
 };
 
 true;
