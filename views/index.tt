@@ -1,4 +1,7 @@
-Welcome to Dancer 2 on OpenShift V3!  It is currently [% timestamp %]
+Welcome to the Credit Suisse Adressbook
+<br>
+It is currently [% timestamp %]
+<br>
 <br>
 <br>
 <form action="/" method="post">
